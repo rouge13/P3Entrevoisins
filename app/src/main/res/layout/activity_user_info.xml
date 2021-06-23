@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#C4C4CA"
+    android:orientation="vertical">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+
+>
+        <ImageView
+            android:id="@+id/item_avatar_user_image"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@mipmap/caroline_foreground"
+            />
+
+        <ImageButton
+            android:id="@+id/item_backward_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/ic_baseline_arrow_back_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_24"
+
+            tools:src="@drawable/ic_baseline_arrow_back_24" />
+
+
+
+        <ImageButton
+        android:id="@+id/item_add_favorite_user_button"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="32dp"
+        android:elevation="10dp"
+        app:layout_constraintEnd_toEndOf="@id/item_avatar_user_image"
+        app:layout_constraintTop_toBottomOf="@id/item_avatar_user_image"
+        app:layout_constraintBottom_toBottomOf="@id/item_avatar_user_image"
+        app:srcCompat="@drawable/ic_star_border_white_24dp"
+        tools:src="@drawable/ic_star_border_white_24dp"
+        android:background="@drawable/roundcorner"
+
+        />
+
+        <TextView
+            android:id="@+id/item_name_user_with_image_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="25dp"
+            android:fontFamily="@font/heebo"
+            android:text="Caroline"
+            android:textColor="@color/colorWhite"
+            android:textSize="30dp"
+            app:layout_constraintBottom_toBottomOf="@id/item_avatar_user_image"
+            app:layout_constraintStart_toStartOf="@id/item_cardview_1">
+
+        </TextView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/item_cardview_1"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:background="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/item_avatar_user_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:cardCornerRadius="7dp"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+      >
+
+            <TextView
+                android:id="@+id/item_name_user_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/heebo"
+                android:text="Caroline"
+                android:textSize="20sp"
+                android:textColor="@color/colorBlack"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@drawable/layout_border_bottom"
+                >
+
+            </TextView>
+
+        <ImageView
+            android:id="@+id/item_icon_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="15dp"
+            tools:src="@drawable/ic_baseline_location_on_24"
+            app:srcCompat="@drawable/ic_baseline_location_on_24"
+            app:layout_constraintTop_toBottomOf="@id/item_name_user_text"
+            app:layout_constraintStart_toStartOf="parent"
+           >
+        </ImageView>
+
+            <TextView
+                android:id="@+id/item_address_user_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/heebo"
+                app:layout_constraintBottom_toBottomOf="@+id/item_icon_address"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/item_icon_address"
+                app:layout_constraintTop_toTopOf="@+id/item_icon_address"
+                tools:text="Saint pierre du mont à 5km">
+
+            </TextView>
+
+        <ImageView
+            android:id="@+id/item_icon_phone"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="15dp"
+            tools:src="@drawable/ic_baseline_phone_24"
+            app:srcCompat="@drawable/ic_baseline_phone_24"
+            app:layout_constraintTop_toBottomOf="@id/item_address_user_text"
+            app:layout_constraintStart_toStartOf="parent"
+          >
+        </ImageView>
+
+            <TextView
+                android:id="@+id/item_phone_user_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/heebo"
+                android:layout_marginStart="10dp"
+                android:text="+33 6 86 57 90 14"
+                app:layout_constraintBottom_toBottomOf="@+id/item_icon_phone"
+                app:layout_constraintStart_toEndOf="@id/item_icon_phone"
+                app:layout_constraintTop_toTopOf="@+id/item_icon_phone"
+                >
+
+            </TextView>
+
+        <ImageView
+            android:id="@+id/item_icon_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="15dp"
+            app:srcCompat="@drawable/ic_baseline_language_24"
+            tools:src="@drawable/ic_baseline_language_24"
+            app:layout_constraintTop_toBottomOf="@id/item_icon_phone"
+            app:layout_constraintStart_toStartOf="parent"
+         >
+
+        </ImageView>
+
+            <TextView
+                android:id="@+id/item_link_user_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/heebo"
+                android:layout_marginStart="10dp"
+                android:text="www.facebook.fr/caroline"
+                app:layout_constraintBottom_toBottomOf="@+id/item_icon_link"
+                app:layout_constraintStart_toEndOf="@id/item_icon_link"
+                app:layout_constraintTop_toTopOf="@+id/item_icon_link"
+                >
+
+            </TextView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/item_cardview_2"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/item_cardview_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:cardCornerRadius="7dp"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <TextView
+                android:id="@+id/item_profil_user_text"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:fontFamily="@font/heebo"
+                android:layout_marginTop="20dp"
+                android:paddingLeft="15dp"
+                android:textSize="20sp"
+                android:text="A propos de moi"
+                android:textColor="@color/colorBlack"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@drawable/layout_border_bottom"
+                >
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/item_about_content_user_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:fontFamily="@font/heebo"
+                android:text="Bonjour ! Je souhaiterais faire de la marche nordique. Pas initiée, je recherche une ou plusieurs personnes susceptibles de m'accompagner ! J'aime les jeux de cartes tels la belote et le tarot.."
+                app:layout_constraintTop_toBottomOf="@id/item_profil_user_text"
+                app:layout_constraintStart_toStartOf="@id/item_profil_user_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                >
+
+            </TextView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+
+
+
