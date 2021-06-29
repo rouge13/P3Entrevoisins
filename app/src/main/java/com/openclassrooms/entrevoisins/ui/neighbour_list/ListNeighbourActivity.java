@@ -1,5 +1,6 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -9,6 +10,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 import com.openclassrooms.entrevoisins.R;
+import com.openclassrooms.entrevoisins.model.Neighbour;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -43,4 +45,11 @@ public class ListNeighbourActivity extends AppCompatActivity {
     void addNeighbour() {
         AddNeighbourActivity.navigate(this);
     }
+
+//    private void goToInfoNeighbourActivity() {
+//        Intent newIntent = new Intent(this, InfoNeighbourActivity.class);
+//        newIntent.putExtra("Neighbour", DUMMY_NEIGHBOURS);
+//        startActivity(newIntent);
+//    }
+
 }

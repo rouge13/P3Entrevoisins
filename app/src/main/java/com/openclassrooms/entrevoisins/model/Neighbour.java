@@ -1,11 +1,24 @@
 package com.openclassrooms.entrevoisins.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.Objects;
 
 /**
  * Model object representing a Neighbour
  */
-public class Neighbour {
+public class Neighbour implements Parcelable {
+
+    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
+        public Neighbour createFromParcel(Parcel in) {
+            return new Neighbour(in);
+        }
+
+        public Neighbour[] newArray(int size) {
+            return new Neighbour[size];
+        }
+    };
 
     /** Identifier */
     private long id;
@@ -39,6 +52,15 @@ public class Neighbour {
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.aboutMe = aboutMe;
+    }
+
+    public Neighbour(Parcel in) {
+        this.id = in.readLong();
+        this.name = in.readString();
+        this.avatarUrl = in.readString();
+        this.address = in.readString();
+        this.phoneNumber = in.readString();
+        this.aboutMe = in.readString();
     }
 
     public long getId() {
@@ -101,4 +123,20 @@ public class Neighbour {
     public int hashCode() {
         return Objects.hash(id);
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(this.id);
+        dest.writeString(this.name);
+        dest.writeString(this.avatarUrl);
+        dest.writeString(this.address);
+        dest.writeString(this.phoneNumber);
+        dest.writeString(this.aboutMe);
+    }
+
 }
