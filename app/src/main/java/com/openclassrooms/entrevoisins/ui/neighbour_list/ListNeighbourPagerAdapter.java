@@ -16,6 +16,7 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
      * @param position
      * @return
      */
+    // Vérifier en boolean si c'est les voisins ou les favoris voisins
     @Override
     public Fragment getItem(int position) {
         return NeighbourFragment.newInstance();

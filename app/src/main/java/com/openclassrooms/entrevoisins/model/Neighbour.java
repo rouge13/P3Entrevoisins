@@ -1,13 +1,23 @@
 package com.openclassrooms.entrevoisins.model;
 
+import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import androidx.annotation.RequiresApi;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
+import com.google.auto.value.AutoValue;
 
 import java.util.Objects;
 
 /**
  * Model object representing a Neighbour
  */
+
 public class Neighbour implements Parcelable {
 
     public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
@@ -21,7 +31,14 @@ public class Neighbour implements Parcelable {
     };
 
     /** Identifier */
+
     private long id;
+
+    public Neighbour(long id, String name, boolean isFavorite) {
+        this.id = id;
+        this.name = name;
+        this.isFavorite = isFavorite;
+    }
 
     /** Full name */
     private String name;
@@ -37,6 +54,9 @@ public class Neighbour implements Parcelable {
 
     /** About me */
     private String aboutMe;
+
+    /** Is added favorite true or false */
+    private boolean isFavorite;
 
     /**
      * Constructor
@@ -61,6 +81,11 @@ public class Neighbour implements Parcelable {
         this.address = in.readString();
         this.phoneNumber = in.readString();
         this.aboutMe = in.readString();
+        isFavorite = in.readInt() == 1;
+    }
+
+    public Neighbour(boolean isFavorite) {
+        this.isFavorite = isFavorite;
     }
 
     public long getId() {
@@ -111,6 +136,12 @@ public class Neighbour implements Parcelable {
         this.aboutMe = aboutMe;
     }
 
+    public boolean getIsFavorite() {return isFavorite; }
+
+    public void setIsFavorite(boolean isFavorite) {
+        this.isFavorite = isFavorite;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -129,6 +160,7 @@ public class Neighbour implements Parcelable {
         return 0;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.Q)
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeLong(this.id);
@@ -137,6 +169,20 @@ public class Neighbour implements Parcelable {
         dest.writeString(this.address);
         dest.writeString(this.phoneNumber);
         dest.writeString(this.aboutMe);
+        dest.writeInt(isFavorite ? 1 : 0);
+    }
+
+    @Override
+    public String toString() {
+        return "Neighbour{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", avatarUrl='" + avatarUrl + '\'' +
+                ", address='" + address + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", aboutMe='" + aboutMe + '\'' +
+                ", isFavorite=" + isFavorite +
+                '}';
     }
 
 }
