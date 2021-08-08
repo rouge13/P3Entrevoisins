@@ -11,7 +11,8 @@ import java.util.List;
 public class DummyNeighbourApiService implements  NeighbourApiService {
 
     private List<Neighbour> neighbours = DummyNeighbourGenerator.generateNeighbours();
-    private List<Neighbour> favoriteList = new ArrayList<>();
+    private List<Neighbour> favoriteListNeighbours = DummyNeighbourGenerator.generateFavorites();
+//    public List<Neighbour> favoriteListNeighbours = new ArrayList<>();
 
 
     /**
@@ -21,14 +22,17 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
     public List<Neighbour> getNeighbours() {
         return neighbours;
     }
-
     /**
      * {@inheritDoc}
      */
     @Override
     public void deleteNeighbour(Neighbour neighbour) {
         neighbours.remove(neighbour);
-        favoriteList.remove(neighbour);
+        favoriteListNeighbours.remove(neighbour);
+    }
+
+    public void deleteNeighbourFavorites(Neighbour favoriteNeighbour) {
+        favoriteListNeighbours.remove(favoriteNeighbour);
     }
 
     /**
@@ -44,26 +48,43 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
     public void setNeighbourFavorite(Neighbour neighbour) {
         for (int i = 0; i < neighbours.size(); i++) {
             if (neighbours.get(i) == neighbour){
-                if (!neighbour.getIsFavorite()){
+                if (!neighbour.getIsFavorite() && !favoriteListNeighbours.contains(neighbours.get(i))){
+//                    neighbour.setIsFavorite(true);
                     neighbour.setIsFavorite(true);
-                    neighbours.get(i).setIsFavorite(true);
+                    favoriteListNeighbours.add(neighbour);
                 } else {
+//                    neighbour.setIsFavorite(false);
                     neighbour.setIsFavorite(false);
-                    neighbours.get(i).setIsFavorite(false);
+//                    favoriteListNeighbours.remove(neighbour);
+                    favoriteListNeighbours.remove(neighbour);
                 }
             }
         }
+
     }
 
     @Override
-    public List<Neighbour> getNeighbourFavorite(Neighbour neighbour) {
+    public List<Neighbour> getNeighboursFavorite() {
         // TODO
         // récupérer voisins qui sont ajouté en favoris.
-        for (int i = 0; i < neighbours.size(); i++) {
-            if (neighbour.getIsFavorite()){
-                favoriteList.add(neighbour);
-            }
-        }
-        return favoriteList;
+//        List<Neighbour> favoriteListNeighbours = new ArrayList<>();
+//        for (int i = 0; i < neighbours.size(); i++) {
+////            if (neighbours.get(i).getIsFavorite()){
+//                if (!favoriteListNeighbours.contains(neighbours.get(i)) && neighbours.get(i).getIsFavorite()){
+//                    favoriteListNeighbours.add(neighbours.get(i));
+//                }
+////                else {
+////                    favoriteListNeighbours.remove(neighbours.get(i));
+////                }
+////            }
+//        }
+        return favoriteListNeighbours;
     }
+
+
+    public void addFavoriteInList(Neighbour favoriteNeighbour) {
+        favoriteListNeighbours.add(favoriteNeighbour);
+    }
+
+
 }

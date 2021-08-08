@@ -1,6 +1,5 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
-
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -19,7 +18,11 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
     // Vérifier en boolean si c'est les voisins ou les favoris voisins
     @Override
     public Fragment getItem(int position) {
-        return NeighbourFragment.newInstance();
+             if (position == 1) {
+            return NeighbourFragment.newInstance("favorites");
+        }
+        return NeighbourFragment.newInstance("neighbours");
+
     }
 
     /**
@@ -27,7 +30,5 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
      * @return
      */
     @Override
-    public int getCount() {
-        return 1;
-    }
+    public int getCount() {return 2;}
 }

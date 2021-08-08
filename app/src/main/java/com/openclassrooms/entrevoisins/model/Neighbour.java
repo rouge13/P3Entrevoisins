@@ -5,13 +5,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import androidx.annotation.RequiresApi;
-import androidx.room.ColumnInfo;
-import androidx.room.Entity;
-import androidx.room.Ignore;
-import androidx.room.PrimaryKey;
-
-import com.google.auto.value.AutoValue;
-
 import java.util.Objects;
 
 /**
@@ -65,13 +58,14 @@ public class Neighbour implements Parcelable {
      * @param avatarUrl
      */
     public Neighbour(long id, String name, String avatarUrl, String address,
-                     String phoneNumber, String aboutMe) {
+                     String phoneNumber, String aboutMe, boolean isFavorite) {
         this.id = id;
         this.name = name;
         this.avatarUrl = avatarUrl;
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.aboutMe = aboutMe;
+        this.isFavorite = isFavorite;
     }
 
     public Neighbour(Parcel in) {
@@ -81,7 +75,7 @@ public class Neighbour implements Parcelable {
         this.address = in.readString();
         this.phoneNumber = in.readString();
         this.aboutMe = in.readString();
-        isFavorite = in.readInt() == 1;
+        isFavorite = in.readByte() != 0;
     }
 
     public Neighbour(boolean isFavorite) {
@@ -169,20 +163,20 @@ public class Neighbour implements Parcelable {
         dest.writeString(this.address);
         dest.writeString(this.phoneNumber);
         dest.writeString(this.aboutMe);
-        dest.writeInt(isFavorite ? 1 : 0);
+        dest.writeByte((byte) (isFavorite ? 1 : 0));
     }
 
-    @Override
-    public String toString() {
-        return "Neighbour{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", avatarUrl='" + avatarUrl + '\'' +
-                ", address='" + address + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", aboutMe='" + aboutMe + '\'' +
-                ", isFavorite=" + isFavorite +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Neighbour{" +
+//                "id=" + id +
+//                ", name='" + name + '\'' +
+//                ", avatarUrl='" + avatarUrl + '\'' +
+//                ", address='" + address + '\'' +
+//                ", phoneNumber='" + phoneNumber + '\'' +
+//                ", aboutMe='" + aboutMe + '\'' +
+//                ", isFavorite=" + isFavorite +
+//                '}';
+//    }
 
 }

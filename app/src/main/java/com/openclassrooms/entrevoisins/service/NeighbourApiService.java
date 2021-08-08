@@ -21,6 +21,7 @@ public interface NeighbourApiService {
      * @param neighbour
      */
     void deleteNeighbour(Neighbour neighbour);
+    void deleteNeighbourFavorites(Neighbour favoriteNeighbour);
 
     /**
      * Create a neighbour
@@ -28,9 +29,12 @@ public interface NeighbourApiService {
      */
     void createNeighbour(Neighbour neighbour);
 
-    // Add a neighbour in the favorite
+    // Add a neighbour in the favorite in the state
     void setNeighbourFavorite(Neighbour neighbour);
 
-    List<Neighbour> getNeighbourFavorite(Neighbour neighbour);
+    // Add neighbour in the favorite list
+    void addFavoriteInList(Neighbour favoriteNeighbour);
 
+    // Get all the neighbours
+    List<Neighbour> getNeighboursFavorite();
 }

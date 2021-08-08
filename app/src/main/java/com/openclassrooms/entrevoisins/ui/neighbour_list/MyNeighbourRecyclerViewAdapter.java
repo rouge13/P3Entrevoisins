@@ -1,12 +1,15 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -27,21 +30,27 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
     public MyNeighbourRecyclerViewAdapter(List<Neighbour> items) {
         mNeighbours = items;
     }
-    public OnItemClickListener mListener;
-
-    public interface OnItemClickListener {
-        void onItemClick(int position);
-    }
-
-    public void setOnItemClickListener(OnItemClickListener listener){
-        mListener = listener;
-    }
+//    public OnItemClickListener mListener;
+//
+//    public interface OnItemClickListener {
+//        void onItemClick(int position);
+//    }
+//
+//    public void setOnItemClickListener(OnItemClickListener listener){
+//        mListener = listener;
+//    }
 
     @Override
+//    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+//        View view = LayoutInflater.from(parent.getContext())
+//                .inflate(R.layout.fragment_neighbour, parent, false);
+////        return new ViewHolder(view, mListener);
+//    }
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.fragment_neighbour, parent, false);
-        return new ViewHolder(view, mListener);
+//        return new ViewHolder(view, mListener);
+        return new ViewHolder(view);
     }
 
     @Override
@@ -59,6 +68,15 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
 
             }
         });
+        holder.mNeighbourLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), InfoNeighbourActivity.class);
+//                intent.putExtra("Neighbour", neighbour.get(position));
+                intent.putExtra("Neighbours", mNeighbours.get(position));
+                v.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -68,7 +86,9 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        private OnItemClickListener mListener;
+//        private AdapterView.OnItemClickListener mListener;
+        @BindView(R.id.fragment_neighbour_layout)
+        public ConstraintLayout mNeighbourLayout;
         @BindView(R.id.item_list_avatar)
         public ImageView mNeighbourAvatar;
         @BindView(R.id.item_list_name)
@@ -76,21 +96,21 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
         @BindView(R.id.item_list_delete_button)
         public ImageButton mDeleteButton;
 
-        public ViewHolder(View view, OnItemClickListener listener) {
+
+
+        public ViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
-            this.mListener = listener;
-            view.setOnClickListener(v -> {
-                if (listener != null){
-                    int position = getAdapterPosition();
-                    if (position != RecyclerView.NO_POSITION){
-                        listener.onItemClick(position);
-                    }
-                }
-            });
+//            this.mListener = listener;
+//            view.setOnClickListener(v -> {
+//                if (listener != null){
+//                    int position = getAdapterPosition();
+//                    if (position != RecyclerView.NO_POSITION){
+//                        listener.onItemClick(position);
+//                    }
+//                }
+//            });
         }
-
-
 
     }
 
