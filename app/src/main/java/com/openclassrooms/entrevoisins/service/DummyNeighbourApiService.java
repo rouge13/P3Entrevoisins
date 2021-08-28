@@ -60,7 +60,6 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
                 }
             }
         }
-
     }
 
     @Override

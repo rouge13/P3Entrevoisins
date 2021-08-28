@@ -27,11 +27,11 @@ public class Neighbour implements Parcelable {
 
     private long id;
 
-    public Neighbour(long id, String name, boolean isFavorite) {
-        this.id = id;
-        this.name = name;
-        this.isFavorite = isFavorite;
-    }
+//    public Neighbour(long id, String name, boolean isFavorite) {
+//        this.id = id;
+//        this.name = name;
+//        this.isFavorite = isFavorite;
+//    }
 
     /** Full name */
     private String name;
