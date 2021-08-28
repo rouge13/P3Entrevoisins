@@ -63,9 +63,8 @@
             app:layout_constraintEnd_toEndOf="@id/item_avatar_user_image"
             app:layout_constraintTop_toBottomOf="@id/item_avatar_user_image"
             app:layout_constraintBottom_toBottomOf="@id/item_avatar_user_image"
-            tools:srcCompat="@drawable/ic_baseline_star_border_8_black"
+            app:backgroundTint="@color/colorWhite"
             android:background="@drawable/roundcorner"
-            app:backgroundTint="@color/colorTransparent"
 
         />
 

@@ -48,6 +48,8 @@ public class NeighbourServiceTest {
         Neighbour neighbourToDelete = service.getNeighbours().get(0);
         service.deleteNeighbour(neighbourToDelete);
         assertFalse(service.getNeighbours().contains(neighbourToDelete));
+        assertFalse(service.getNeighboursFavorite().contains(neighbourToDelete));
+
     }
 
     @Test

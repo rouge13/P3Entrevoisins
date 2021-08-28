@@ -48,9 +48,9 @@ public class InfoNeighbourActivity extends AppCompatActivity {
     public FloatingActionButton mBackwardButton;
     @BindView(R.id.item_profil_user_text)
     public TextView mAboutMeTextView;
-    @BindDrawable(R.drawable.ic_baseline_star_border_8_black)
+    @BindDrawable(R.drawable.ic_star_border_white_24dp)
     public Drawable mFavoriteFalse;
-    @BindDrawable(R.drawable.ic_baseline_star_8_yellow)
+    @BindDrawable(R.drawable.ic_baseline_star_24_yellow)
     public Drawable mFavoriteTrue;
     private static final String TAG = InfoNeighbourActivity.class.getSimpleName();
 //    mNeighbourFavoriteStates = findViewById(R.id.item_add_favorite_user_button);
