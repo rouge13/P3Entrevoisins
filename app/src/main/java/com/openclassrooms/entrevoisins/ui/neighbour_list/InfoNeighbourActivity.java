@@ -3,8 +3,6 @@ package com.openclassrooms.entrevoisins.ui.neighbour_list;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -52,7 +50,7 @@ public class InfoNeighbourActivity extends AppCompatActivity {
     public Drawable mFavoriteFalse;
     @BindDrawable(R.drawable.ic_baseline_star_24_yellow)
     public Drawable mFavoriteTrue;
-    private static final String TAG = InfoNeighbourActivity.class.getSimpleName();
+    // --Commented out by Inspection (29/08/2021 09:51):private static final String TAG = InfoNeighbourActivity.class.getSimpleName();
 //    mNeighbourFavoriteStates = findViewById(R.id.item_add_favorite_user_button);
 //    mNeighbourNameImage = findViewById(R.id.item_name_user_with_image_text);
 //    mNeighbourName = findViewById(R.id.item_name_user_text);

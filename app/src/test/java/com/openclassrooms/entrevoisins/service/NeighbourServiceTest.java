@@ -22,7 +22,6 @@ import static org.junit.Assert.assertTrue;
 public class NeighbourServiceTest {
 
     private NeighbourApiService service;
-    private List<Neighbour> favoriteNeighboursList;
 
     @Before
     public void setup() {
@@ -70,7 +69,6 @@ public class NeighbourServiceTest {
     @Test
     public void addFavoriteNeighbourWithSuccess() {
         service.getNeighboursFavorite().clear();
-        favoriteNeighboursList = service.getNeighboursFavorite();
         Neighbour favoriteNeighbourToAdd = DummyNeighbourGenerator.DUMMY_NEIGHBOURS.get(0);
         service.addFavoriteInList(favoriteNeighbourToAdd);
         assertTrue(service.getNeighboursFavorite().contains(favoriteNeighbourToAdd));
