@@ -52,7 +52,26 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
 //                    neighbour.setIsFavorite(true);
                     neighbour.setIsFavorite(true);
                     favoriteListNeighbours.add(neighbour);
-                } else {
+                }
+//                else {
+////                    neighbour.setIsFavorite(false);
+//                    neighbour.setIsFavorite(false);
+////                    favoriteListNeighbours.remove(neighbour);
+//                    favoriteListNeighbours.remove(neighbour);
+//                }
+            }
+        }
+    }
+
+    @Override
+    public void unSetNeighbourFavorite(Neighbour neighbour) {
+        for (int i = 0; i < neighbours.size(); i++) {
+            if (neighbours.get(i) == neighbour){
+                if (neighbour.getIsFavorite() && favoriteListNeighbours.contains(neighbours.get(i))){
+////                    neighbour.setIsFavorite(true);
+//                    neighbour.setIsFavorite(true);
+//                    favoriteListNeighbours.add(neighbour);
+//                } else {
 //                    neighbour.setIsFavorite(false);
                     neighbour.setIsFavorite(false);
 //                    favoriteListNeighbours.remove(neighbour);

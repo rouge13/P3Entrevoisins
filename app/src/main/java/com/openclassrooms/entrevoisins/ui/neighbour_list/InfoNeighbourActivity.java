@@ -76,8 +76,12 @@ public class InfoNeighbourActivity extends AppCompatActivity {
 //        Log.e("Error test","test log en erreur");
 //        Log.d(TAG, "onCreate() called with: savedInstanceState = [" + savedInstanceState + "]");
         getNeighbour();
+
+// A mettre en commentaire pour test sur le floating action button
         configureFloatingActionButtonBackward();
         configureFavoritesActionButtonStates();
+
+
         // viewbinding => findViewById
 //        mNeighbourName.setText(mNeighbour.getName());
 //        Glide.with(this).load(mNeighbour.getAvatarUrl()).
@@ -120,7 +124,7 @@ public class InfoNeighbourActivity extends AppCompatActivity {
                     mNeighbourFavoriteStates.setImageDrawable(mFavoriteTrue);
 //                    mNeighbourFavoriteStates.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_baseline_star_8_yellow));
                 } else {
-                    mApiService.setNeighbourFavorite(mNeighbour);
+                    mApiService.unSetNeighbourFavorite(mNeighbour);
                     mApiService.deleteNeighbourFavorites(mNeighbour);
                     mNeighbourFavoriteStates.setImageDrawable(mFavoriteFalse);
 //                    mNeighbourFavoriteStates.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_baseline_star_border_8_black));

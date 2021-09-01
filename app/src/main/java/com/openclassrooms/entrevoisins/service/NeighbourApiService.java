@@ -29,8 +29,11 @@ public interface NeighbourApiService {
      */
     void createNeighbour(Neighbour neighbour);
 
-    // Add a neighbour in the favorite in the state
+    // Add a neighbour in the favorite (true) in the state
     void setNeighbourFavorite(Neighbour neighbour);
+
+    // cancel the neighbour in the favorite in the state
+    void unSetNeighbourFavorite(Neighbour neighbour);
 
     // Add neighbour in the favorite list
     void addFavoriteInList(Neighbour favoriteNeighbour);

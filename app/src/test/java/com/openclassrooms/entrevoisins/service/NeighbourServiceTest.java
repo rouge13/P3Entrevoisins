@@ -80,7 +80,17 @@ public class NeighbourServiceTest {
         assertFalse(service.getNeighbours().get(0).getIsFavorite());
         service.setNeighbourFavorite(neighbour);
         assertTrue(service.getNeighbours().get(0).getIsFavorite());
-        service.setNeighbourFavorite(neighbour);
+//        service.setNeighbourFavorite(neighbour);
+//        assertFalse(service.getNeighbours().get(0).getIsFavorite());
+    }
+
+    @Test
+    public void unSetNeighbourFavorite() {
+        Neighbour neighbourFavorite = service.getNeighbours().get(0);
+        assertFalse(service.getNeighbours().get(0).getIsFavorite());
+//        service.setNeighbourFavorite(neighbour);
+//        assertTrue(service.getNeighbours().get(0).getIsFavorite());
+        service.unSetNeighbourFavorite(neighbourFavorite);
         assertFalse(service.getNeighbours().get(0).getIsFavorite());
     }
 
