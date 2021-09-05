@@ -1,8 +1,11 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -28,8 +31,6 @@ public class InfoNeighbourActivity extends AppCompatActivity {
 
     @BindView(R.id.item_avatar_user_image)
     public ImageView mNeighbourAvatar;
-    @BindView(R.id.item_add_favorite_user_button)
-    public FloatingActionButton mNeighbourFavoriteStates;
     @BindView(R.id.item_name_user_with_image_text)
     public TextView mNeighbourNameImage;
     @BindView(R.id.item_name_user_text)
@@ -43,10 +44,12 @@ public class InfoNeighbourActivity extends AppCompatActivity {
     @BindView(R.id.item_about_content_user_text)
     public TextView mNeighbourAboutMe;
     @BindView(R.id.item_backward_button)
-    public FloatingActionButton mBackwardButton;
+    public ImageView mBackwardButton;
     @BindView(R.id.item_profil_user_text)
     public TextView mAboutMeTextView;
-    @BindDrawable(R.drawable.ic_star_border_white_24dp)
+    @BindView(R.id.item_add_favorite_user_button)
+    public FloatingActionButton mNeighbourFavoriteStates;
+    @BindDrawable(R.drawable.ic_baseline_star_border_24_black)
     public Drawable mFavoriteFalse;
     @BindDrawable(R.drawable.ic_baseline_star_24_yellow)
     public Drawable mFavoriteTrue;
@@ -127,7 +130,7 @@ public class InfoNeighbourActivity extends AppCompatActivity {
                     mApiService.unSetNeighbourFavorite(mNeighbour);
                     mApiService.deleteNeighbourFavorites(mNeighbour);
                     mNeighbourFavoriteStates.setImageDrawable(mFavoriteFalse);
-//                    mNeighbourFavoriteStates.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_baseline_star_border_8_black));
+                    // mNeighbourFavoriteStates.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_baseline_star_border_8_black));
                 }
             }
 
@@ -163,7 +166,7 @@ public class InfoNeighbourActivity extends AppCompatActivity {
     }
 
     private void configureFavoritesActionButtonStates() {
-        mNeighbourFavoriteStates.setImageResource(R.drawable.ic_baseline_star_border_8_black);
+        mNeighbourFavoriteStates.setImageDrawable(mFavoriteFalse);
 //        mNeighbourFavoriteStates.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_baseline_star_border_8_black));
         if (mNeighbour != null) {
             if (!mApiService.getNeighboursFavorite().contains(mNeighbour)) {
