@@ -107,14 +107,14 @@ import java.util.List;
     @Override
     public void onResume() {
         super.onResume();
-//        initList();
+        initList();
     }
 
     @Override
     public void onStart() {
         super.onStart();
         EventBus.getDefault().register(this);
-        initList();
+//        initList();
     }
 
     @Override
