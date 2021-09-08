@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
-
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -12,8 +11,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
->
+        android:orientation="vertical">
         <ImageView
             android:id="@+id/item_avatar_user_image"
             android:layout_width="match_parent"
@@ -23,7 +21,6 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:background="@mipmap/caroline_foreground"
             />
-
         <ImageView
             android:id="@+id/item_backward_button"
             android:layout_width="wrap_content"
@@ -34,24 +31,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_baseline_arrow_back_24"
             />
-
-
-
-<!--        <android.support.design.widget.FloatingActionButton-->
-<!--            android:id="@+id/fab"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_margin="@dimen/fab_margin"-->
-<!--            android:tint="#FFB701"-->
-<!--            app:backgroundTint="#FFFFFF"-->
-<!--            app:layout_anchor="@id/app_bar"-->
-<!--            app:layout_anchorGravity="bottom|end"-->
-<!--            app:srcCompat="@drawable/ic_star_border_white_24dp" />-->
-
-
-
-
-
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/item_add_favorite_user_button"
             android:layout_width="56dp"
@@ -67,7 +46,6 @@
             app:backgroundTint="@color/colorWhite"
             app:tint="@null"
             />
-
         <TextView
             android:id="@+id/item_name_user_with_image_text"
             android:layout_width="wrap_content"
@@ -80,9 +58,7 @@
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="@id/item_avatar_user_image"
             app:layout_constraintStart_toStartOf="@id/item_cardview_1">
-
         </TextView>
-
     <androidx.cardview.widget.CardView
         android:id="@+id/item_cardview_1"
         android:orientation="vertical"
@@ -97,7 +73,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:cardCornerRadius="7dp"
         >
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -115,9 +90,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:background="@drawable/layout_border_bottom">
-
             </TextView>
-
         <ImageView
             android:id="@+id/item_icon_address"
             android:layout_width="wrap_content"
@@ -129,7 +102,6 @@
             app:layout_constraintStart_toStartOf="parent"
            >
         </ImageView>
-
             <TextView
                 android:id="@+id/item_address_user_text"
                 android:layout_width="0dp"
@@ -142,7 +114,6 @@
                 app:layout_constraintTop_toTopOf="@+id/item_icon_address"
                 tools:text="Saint pierre du mont à 5km">
             </TextView>
-
         <ImageView
             android:id="@+id/item_icon_phone"
             android:layout_width="24dp"
@@ -154,7 +125,6 @@
             app:layout_constraintStart_toStartOf="parent"
           >
         </ImageView>
-
             <TextView
                 android:id="@+id/item_phone_user_text"
                 android:layout_width="wrap_content"
@@ -166,9 +136,7 @@
                 app:layout_constraintStart_toEndOf="@id/item_icon_phone"
                 app:layout_constraintTop_toTopOf="@+id/item_icon_phone"
                 >
-
             </TextView>
-
         <ImageView
             android:id="@+id/item_icon_link"
             android:layout_width="wrap_content"
@@ -179,9 +147,7 @@
             app:layout_constraintTop_toBottomOf="@id/item_icon_phone"
             app:layout_constraintStart_toStartOf="parent"
          >
-
         </ImageView>
-
             <TextView
                 android:id="@+id/item_link_user_text"
                 android:layout_width="wrap_content"
@@ -193,11 +159,9 @@
                 app:layout_constraintStart_toEndOf="@id/item_icon_link"
                 app:layout_constraintTop_toTopOf="@+id/item_icon_link"
                 >
-
             </TextView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
-
     <androidx.cardview.widget.CardView
         android:id="@+id/item_cardview_2"
         android:orientation="vertical"
@@ -214,12 +178,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:cardCornerRadius="7dp"
         >
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             >
-
             <TextView
                 android:id="@+id/item_profil_user_text"
                 android:layout_width="match_parent"
@@ -234,9 +196,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:background="@drawable/layout_border_bottom">
-
             </TextView>
-
             <TextView
                 android:id="@+id/item_about_content_user_text"
                 android:layout_width="match_parent"
@@ -251,14 +211,10 @@
                 app:layout_constraintStart_toStartOf="@id/item_profil_user_text"
                 app:layout_constraintTop_toBottomOf="@id/item_profil_user_text"
                 tools:text="Bonjour ! Je souhaiterais faire de la marche nordique. Pas initiée, je recherche une ou plusieurs personnes susceptibles de m'accompagner ! J'aime les jeux de cartes tels la belote et le tarot..">
-
             </TextView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
-
 </ScrollView>
 
 

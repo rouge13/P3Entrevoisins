@@ -26,33 +26,15 @@ import butterknife.ButterKnife;
 
 public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeighbourRecyclerViewAdapter.ViewHolder> {
     private final List<Neighbour> mNeighbours;
-
     public MyNeighbourRecyclerViewAdapter(List<Neighbour> items) {
         mNeighbours = items;
     }
-//    public OnItemClickListener mListener;
-//
-//    public interface OnItemClickListener {
-//        void onItemClick(int position);
-//    }
-//
-//    public void setOnItemClickListener(OnItemClickListener listener){
-//        mListener = listener;
-//    }
-
     @Override
-//    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-//        View view = LayoutInflater.from(parent.getContext())
-//                .inflate(R.layout.fragment_neighbour, parent, false);
-////        return new ViewHolder(view, mListener);
-//    }
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.fragment_neighbour, parent, false);
-//        return new ViewHolder(view, mListener);
         return new ViewHolder(view);
     }
-
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         Neighbour neighbour = mNeighbours.get(position);
@@ -65,28 +47,22 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
             @Override
             public void onClick(View v) {
                 EventBus.getDefault().post(new DeleteNeighbourEvent(neighbour));
-
             }
         });
         holder.mNeighbourLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), InfoNeighbourActivity.class);
-//                intent.putExtra("Neighbour", neighbour.get(position));
                 intent.putExtra("Neighbours", mNeighbours.get(position));
                 v.getContext().startActivity(intent);
             }
         });
     }
-
     @Override
     public int getItemCount() {
         return mNeighbours.size();
     }
-
     public static class ViewHolder extends RecyclerView.ViewHolder {
-
-//        private AdapterView.OnItemClickListener mListener;
         @BindView(R.id.fragment_neighbour_layout)
         public ConstraintLayout mNeighbourLayout;
         @BindView(R.id.item_list_avatar)
@@ -95,24 +71,9 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
         public TextView mNeighbourName;
         @BindView(R.id.item_list_delete_button)
         public ImageButton mDeleteButton;
-
-
-
         public ViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
-//            this.mListener = listener;
-//            view.setOnClickListener(v -> {
-//                if (listener != null){
-//                    int position = getAdapterPosition();
-//                    if (position != RecyclerView.NO_POSITION){
-//                        listener.onItemClick(position);
-//                    }
-//                }
-//            });
         }
-
     }
-
-
 }

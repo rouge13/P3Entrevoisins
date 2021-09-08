@@ -1,6 +1,5 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
-
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
@@ -12,8 +11,6 @@ import androidx.test.rule.ActivityTestRule;
 import androidx.test.runner.AndroidJUnit4;
 
 import com.openclassrooms.entrevoisins.R;
-import com.openclassrooms.entrevoisins.model.Neighbour;
-import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
@@ -22,8 +19,6 @@ import org.hamcrest.core.AllOf;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
-import java.util.List;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
@@ -41,15 +36,11 @@ import static androidx.test.espresso.matcher.ViewMatchers.hasChildCount;
 @LargeTest
 @RunWith(AndroidJUnit4.class)
 public class ListNeighbourActivityAndInfoNeighbourActivityTest {
-
-    // Ceci est constant
+    // Ceci est une constante concernant le nombre
     private static int ITEMS_COUNT = 12;
-
     @Rule
     public ActivityTestRule<ListNeighbourActivity> mActivityTestRule = new ActivityTestRule<>(ListNeighbourActivity.class);
-
     @Test
-//    public void listNeighbourActivityAndInfoNeighbourActivityTest() throws Exception {
     public void listNeighbourActivityAndInfoNeighbourActivityTest() {
         onView(AllOf.allOf(withId(R.id.list_neighbours), isDisplayed()))
     .perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
@@ -198,28 +189,15 @@ public class ListNeighbourActivityAndInfoNeighbourActivityTest {
         tabView6.perform(click());
 
         onView(allOf(withId(R.id.list_neighbours), isDisplayed())).check(withItemCount((ITEMS_COUNT - 1)));
-
-
     }
-//
-//
-//    public void deleteNeighbourActivityTest() {
-//        onView(ViewMatchers.withId(R.id.list_neighbours)).check(matches(hasChildCount(1)));
-//        onView(ViewMatchers.withId(R.id.list_neighbours))
-//                .check(matches(hasMinimumChildCount(1)));
-//
-//    }
-
     private static Matcher<View> childAtPosition(
             final Matcher<View> parentMatcher, final int position) {
-
         return new TypeSafeMatcher<View>() {
             @Override
             public void describeTo(Description description) {
                 description.appendText("Child at position " + position + " in parent ");
                 parentMatcher.describeTo(description);
             }
-
             @Override
             public boolean matchesSafely(View view) {
                 ViewParent parent = view.getParent();

@@ -9,7 +9,6 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
     public ListNeighbourPagerAdapter(FragmentManager fm) {
         super(fm);
     }
-
     /**
      * getItem is called to instantiate the fragment for the given page.
      * @param position
@@ -22,9 +21,7 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
             return NeighbourFragment.newInstance(true);
         }
         return NeighbourFragment.newInstance(false);
-
     }
-
     /**
      * get the number of pages
      * @return

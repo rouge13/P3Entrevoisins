@@ -30,17 +30,12 @@ import java.util.List;
 
 //public class NeighbourFragment extends Fragment implements MyNeighbourRecyclerViewAdapter.OnItemClickListener {
     public class NeighbourFragment extends Fragment {
-
-
     private NeighbourApiService mApiService;
     private List<Neighbour> mNeighbours;
-//    private List<Neighbour> mNeighboursFavorite;
     private RecyclerView mRecyclerView;
     private MyNeighbourRecyclerViewAdapter mNeighbourRecyclerViewAdapter;
     private boolean isFavorite;
     public static final String IS_FAVORITE = "position";
-
-
     /**
      * Create and return a new instance
      * @return @{@link NeighbourFragment}
@@ -51,19 +46,16 @@ import java.util.List;
         Bundle argumentsPage = new Bundle();
 //        Stocker position en key et newInstance retourne la page favorite ou neighbours
         argumentsPage.putBoolean(IS_FAVORITE, isFavorite);
-//        System.out.println("POSITION ::" + position);
 //        Paramètrer l'argument de la page
         fragment.setArguments(argumentsPage);
 //        Retourner le fragment selon la page sélectionnée
         return fragment;
     }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mApiService = DI.getNeighbourApiService();
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -78,7 +70,6 @@ import java.util.List;
         initList();
         return view;
     }
-
     /**
      * Init the List of neighbours
      * utilisation de la méthode de services DummyNeighbourApiService getNeighbourFavorite
@@ -89,40 +80,27 @@ import java.util.List;
         if (isFavorite){
             System.out.println("PAGE_COURANTE ::" + getArguments().getString(IS_FAVORITE));
             mNeighbours = mApiService.getNeighboursFavorite();
-//            mNeighbourRecyclerViewAdapter = new MyNeighbourRecyclerViewAdapter(mApiService.getNeighboursFavorite());
-//           mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mNeighboursFavorite));
         } else {
             System.out.println("PAGE_COURANTE ::" + getArguments().getString(IS_FAVORITE));
             mNeighbours = mApiService.getNeighbours();
-//            mNeighbourRecyclerViewAdapter = new MyNeighbourRecyclerViewAdapter(mApiService.getNeighbours());
-//            mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mNeighbours));
         }
-//        mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mNeighbours));
-//        mNeighbourRecyclerViewAdapter.setOnItemClickListener(this);
-//        mRecyclerView.setAdapter(mNeighbourRecyclerViewAdapter);
         mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mNeighbours));
-//        mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mNeighbours));
     }
-
     @Override
     public void onResume() {
         super.onResume();
         initList();
     }
-
     @Override
     public void onStart() {
         super.onStart();
         EventBus.getDefault().register(this);
-//        initList();
     }
-
     @Override
     public void onStop() {
         super.onStop();
         EventBus.getDefault().unregister(this);
     }
-
     /**
      * Fired if the user clicks on a delete button
      * @param event
@@ -132,12 +110,4 @@ import java.util.List;
         mApiService.deleteNeighbour(event.neighbour);
         initList();
     }
-
-//    @Override
-//    public void onItemClick(int position) {
-//        Intent intent = new Intent(getActivity(), InfoNeighbourActivity.class);
-//        intent.putExtra("Neighbours", mNeighbours.get(position));
-//        startActivity(intent);
-//    }
-
 }

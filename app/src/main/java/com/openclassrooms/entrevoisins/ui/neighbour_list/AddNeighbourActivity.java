@@ -42,7 +42,6 @@ public class AddNeighbourActivity extends AppCompatActivity {
     private NeighbourApiService mApiService;
     private String mNeighbourImage;
     private boolean mNeighbourFavoritesInAddActivity;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +51,6 @@ public class AddNeighbourActivity extends AppCompatActivity {
         mApiService = DI.getNeighbourApiService();
         init();
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -63,7 +61,6 @@ public class AddNeighbourActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
     private void init() {
         mNeighbourImage = randomImage();
         Glide.with(this).load(mNeighbourImage).placeholder(R.drawable.ic_account)
@@ -78,9 +75,7 @@ public class AddNeighbourActivity extends AppCompatActivity {
                 addButton.setEnabled(s.length() > 0);
             }
         });
-
     }
-
     @OnClick(R.id.create)
     void addNeighbour() {
         Neighbour neighbour = new Neighbour(
@@ -95,7 +90,6 @@ public class AddNeighbourActivity extends AppCompatActivity {
         mApiService.createNeighbour(neighbour);
         finish();
     }
-
     /**
      * Generate a random image. Useful to mock image picker
      * @return String

@@ -30,32 +30,19 @@ import static org.junit.Assert.assertThat;
  */
 @RunWith(AndroidJUnit4.class)
 public class NeighboursListTest {
-
     // This is fixed
     private static int ITEMS_COUNT = 12;
-
-//    @Rule
-//    public ActivityTestRule<ListNeighbourActivity> mActivityRule =
-//            new ActivityTestRule(ListNeighbourActivity.class);
-
     @Before
     public void launchActivity() {
         ActivityScenario.launch(ListNeighbourActivity.class);
     }
-
     @Before
     public void setUp() { activityScenarioRule.getScenario().onActivity(activity -> {
        assertThat(activity, notNullValue());
         });
     }
-
     @Rule
     ActivityScenarioRule<ListNeighbourActivity> activityScenarioRule = new ActivityScenarioRule<>(ListNeighbourActivity.class);
-
-
-
-
-
     /**
      * We ensure that our recyclerview is displaying at least on item
      */
@@ -65,7 +52,6 @@ public class NeighboursListTest {
         onView(ViewMatchers.withId(R.id.list_neighbours))
                 .check(matches(hasMinimumChildCount(1)));
     }
-
     /**
      * When we delete an item, the item is no more shown
      */
