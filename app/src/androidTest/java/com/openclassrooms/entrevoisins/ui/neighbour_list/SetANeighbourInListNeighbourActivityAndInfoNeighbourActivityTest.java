@@ -28,16 +28,13 @@ import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withClassName;
 import static androidx.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
-import static com.openclassrooms.entrevoisins.utils.RecyclerViewItemCountAssertion.withItemCount;
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.is;
 import static androidx.test.espresso.matcher.ViewMatchers.hasChildCount;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
-public class ListNeighbourActivityAndInfoNeighbourActivityTest {
-    // Ceci est une constante concernant le nombre
-    private static int ITEMS_COUNT = 12;
+public class SetANeighbourInListNeighbourActivityAndInfoNeighbourActivityTest {
     @Rule
     public ActivityTestRule<ListNeighbourActivity> mActivityTestRule = new ActivityTestRule<>(ListNeighbourActivity.class);
     @Test
@@ -98,7 +95,7 @@ public class ListNeighbourActivityAndInfoNeighbourActivityTest {
                                 1)));
         floatingActionButton4.perform(scrollTo(), click());
 
-        // Vérifier si l'ajout d'un des voisins est bien fait dans la liste des voisins favoris 0 pour le nombre de voisin dans la liste.
+        // Vérifier si la suppression d'un des voisins est bien fait dans la liste des voisins favoris 0 pour le nombre de voisin dans la liste.
         // Départ liste = 1 car il y avait 1 voisin avant l'annulation de ce favoris.
         onView(AllOf.allOf(withId(R.id.list_neighbours), isDisplayed())).check(matches(hasChildCount(0)));
 
@@ -111,85 +108,8 @@ public class ListNeighbourActivityAndInfoNeighbourActivityTest {
                                 0),
                         isDisplayed()));
         tabView2.perform(click());
-
-        onView(AllOf.allOf(withId(R.id.list_neighbours), isDisplayed()))
-                .perform(RecyclerViewActions.actionOnItemAtPosition(1, click()));
-
-        ViewInteraction floatingActionButton5 = onView(
-                allOf(withId(R.id.item_add_favorite_user_button),
-                        childAtPosition(
-                                childAtPosition(
-                                        withClassName(is("android.widget.ScrollView")),
-                                        0),
-                                2)));
-        floatingActionButton5.perform(scrollTo(), click());
-
-        ViewInteraction floatingActionButton6 = onView(
-                allOf(withId(R.id.item_backward_button),
-                        childAtPosition(
-                                childAtPosition(
-                                        withClassName(is("android.widget.ScrollView")),
-                                        0),
-                                1)));
-        floatingActionButton6.perform(scrollTo(), click());
-
-        ViewInteraction tabView3 = onView(
-                allOf(withContentDescription("Favorites"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.tabs),
-                                        0),
-                                1),
-                        isDisplayed()));
-        tabView3.perform(click());
-
-        onView(AllOf.allOf(withId(R.id.list_neighbours), isDisplayed())).check(matches(hasChildCount(1)));
-
-        ViewInteraction tabView4 = onView(
-                allOf(withContentDescription("My neighbours"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.tabs),
-                                        0),
-                                0),
-                        isDisplayed()));
-        tabView4.perform(click());
-
-        ViewInteraction appCompatImageButton = onView(
-                allOf(withId(R.id.item_list_delete_button),
-                        childAtPosition(
-                                allOf(withId(R.id.fragment_neighbour_layout),
-                                        childAtPosition(
-                                                withId(R.id.list_neighbours),
-                                                1)),
-                                2),
-                        isDisplayed()));
-        appCompatImageButton.perform(click());
-
-        ViewInteraction tabView5 = onView(
-                allOf(withContentDescription("Favorites"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.tabs),
-                                        0),
-                                1),
-                        isDisplayed()));
-        tabView5.perform(click());
-
-        onView(AllOf.allOf(withId(R.id.list_neighbours), isDisplayed())).check(matches(hasChildCount(0)));
-
-        ViewInteraction tabView6 = onView(
-                allOf(withContentDescription("My neighbours"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.tabs),
-                                        0),
-                                0),
-                        isDisplayed()));
-        tabView6.perform(click());
-
-        onView(allOf(withId(R.id.list_neighbours), isDisplayed())).check(withItemCount((ITEMS_COUNT - 1)));
     }
+
     private static Matcher<View> childAtPosition(
             final Matcher<View> parentMatcher, final int position) {
         return new TypeSafeMatcher<View>() {
